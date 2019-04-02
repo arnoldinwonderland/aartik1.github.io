@@ -1,1 +1,1 @@
-web: python learn_to_copy.py
+web: python learn_to_code.py
