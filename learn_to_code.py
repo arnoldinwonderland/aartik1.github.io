@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
-import requests 
+import requests
+import os
 #comment
 
 app = Flask("MyApp")
@@ -179,4 +180,7 @@ def sign_up_news():
     add_list_member(to, full_name)
     return render_template("newsletter-sub.html")
 
-app.run()
+if 'PORT' in os.environ:
+     app.run(host='0.0.0.0', port=int(os.environ['PORT']))
+else:
+     app.run(debug=True)
